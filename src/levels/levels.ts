@@ -30,36 +30,57 @@ export const isOppositeColor = (cellA: Cell, cellB: Cell): boolean => {
 export const LEVELS: Record<number, Level[]> = {
     5: [
         {
-            id: '5-1',
+            id: '5x5-01',
             size: 5,
             difficulty: 'easy',
             pairs: [
-                { pairId: 'A', color: '#f44336', start: { r: 0, c: 0 }, end: { r: 4, c: 0 } }, // Red (B-B)
-                { pairId: 'B', color: '#ffeb3b', start: { r: 0, c: 1 }, end: { r: 0, c: 4 } }, // Yellow (W-B)
-                { pairId: 'C', color: '#2196f3', start: { r: 4, c: 1 }, end: { r: 4, c: 4 } }, // Blue (W-B)
+                { pairId: 'Blue', color: '#2196f3', start: { r: 0, c: 0 }, end: { r: 2, c: 0 } },
+                { pairId: 'Green', color: '#4caf50', start: { r: 0, c: 4 }, end: { r: 2, c: 1 } },
+                { pairId: 'Cyan', color: '#00bcd4', start: { r: 1, c: 4 }, end: { r: 3, c: 3 } },
+                { pairId: 'Pink', color: '#e91e63', start: { r: 2, c: 3 }, end: { r: 3, c: 1 } },
             ],
         },
         {
-            id: '5-2',
+            id: '5x5-02',
+            size: 5,
+            difficulty: 'easy',
+            pairs: [
+                { pairId: 'Red', color: '#f44336', start: { r: 0, c: 3 }, end: { r: 4, c: 3 } },
+                { pairId: 'Pink', color: '#e91e63', start: { r: 0, c: 2 }, end: { r: 4, c: 0 } },
+                { pairId: 'Blue', color: '#2196f3', start: { r: 2, c: 2 }, end: { r: 4, c: 1 } },
+                { pairId: 'Beige', color: '#f5f5dc', start: { r: 3, c: 1 }, end: { r: 3, c: 3 } },
+            ],
+        },
+        {
+            id: '5x5-03',
             size: 5,
             difficulty: 'medium',
             pairs: [
-                { pairId: 'A', color: '#f44336', start: { r: 0, c: 0 }, end: { r: 4, c: 4 } }, // Red (B-B)
-                { pairId: 'B', color: '#2196f3', start: { r: 0, c: 1 }, end: { r: 1, c: 0 } }, // Blue (W-W)
-                { pairId: 'C', color: '#4caf50', start: { r: 0, c: 4 }, end: { r: 4, c: 0 } }, // Green (B-B)
-                { pairId: 'D', color: '#ffeb3b', start: { r: 1, c: 1 }, end: { r: 1, c: 2 } }, // Yellow (B-W)
+                { pairId: 'Beige', color: '#f5f5dc', start: { r: 0, c: 4 }, end: { r: 2, c: 0 } },
+                { pairId: 'Cyan', color: '#00bcd4', start: { r: 1, c: 1 }, end: { r: 4, c: 1 } },
+                { pairId: 'Purple', color: '#9c27b0', start: { r: 2, c: 1 }, end: { r: 4, c: 0 } },
+                { pairId: 'Yellow', color: '#ffeb3b', start: { r: 1, c: 4 }, end: { r: 4, c: 4 } },
             ],
         },
         {
-            id: '5-3',
+            id: '5x5-04',
+            size: 5,
+            difficulty: 'medium',
+            pairs: [
+                { pairId: 'Pink', color: '#e91e63', start: { r: 0, c: 0 }, end: { r: 4, c: 4 } },
+                { pairId: 'Beige', color: '#f5f5dc', start: { r: 1, c: 0 }, end: { r: 4, c: 2 } },
+                { pairId: 'Green', color: '#4caf50', start: { r: 2, c: 0 }, end: { r: 4, c: 1 } },
+            ],
+        },
+        {
+            id: '5x5-05',
             size: 5,
             difficulty: 'hard',
             pairs: [
-                { pairId: 'A', color: '#f44336', start: { r: 0, c: 0 }, end: { r: 2, c: 2 } }, // Red (B-B)
-                { pairId: 'B', color: '#2196f3', start: { r: 0, c: 4 }, end: { r: 4, c: 4 } }, // Blue (B-B)
-                { pairId: 'C', color: '#4caf50', start: { r: 4, c: 0 }, end: { r: 1, c: 2 } }, // Green (B-W)
-                { pairId: 'D', color: '#ffeb3b', start: { r: 1, c: 1 }, end: { r: 2, c: 0 } }, // Yellow (B-W)
-                { pairId: 'E', color: '#9c27b0', start: { r: 4, c: 1 }, end: { r: 4, c: 3 } }, // Purple (W-W)
+                { pairId: 'Green', color: '#4caf50', start: { r: 0, c: 0 }, end: { r: 0, c: 4 } },
+                { pairId: 'Orange', color: '#ff9800', start: { r: 1, c: 2 }, end: { r: 3, c: 2 } },
+                { pairId: 'Cyan', color: '#00bcd4', start: { r: 3, c: 1 }, end: { r: 3, c: 3 } },
+                { pairId: 'Yellow', color: '#ffeb3b', start: { r: 1, c: 3 }, end: { r: 4, c: 3 } },
             ],
         },
     ],
@@ -129,6 +150,6 @@ export const getLevel = (size: number, levelId?: string): Level | undefined => {
     const levels = getLevelsBySize(size);
     if (levels.length === 0) return undefined;
     if (!levelId) return levels[0];
-    return levels.find((l) => l.id === levelId) || levels[0];
+    return levels.find((l) => l.id === levelId);
 };
 

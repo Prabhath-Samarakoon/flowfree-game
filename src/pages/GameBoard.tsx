@@ -170,7 +170,8 @@ const GameBoard: React.FC = () => {
             <div className="game-container">
                 <div className="card">
                     <h1>Level Not Found</h1>
-                    <Link to="/levels" className="btn btn-primary">Back to Selection</Link>
+                    <p style={{ color: '#888', marginBottom: '1.5rem' }}>The requested level could not be found.</p>
+                    <Link to={`/levels/${gridSize}`} className="btn btn-primary">Back to Puzzles</Link>
                 </div>
             </div>
         );
@@ -182,8 +183,8 @@ const GameBoard: React.FC = () => {
             onPointerUp={handlePointerUp}
             onPointerLeave={handlePointerUp}
         >
-            <Link to="/levels" className="back-link" id="back-to-levels">
-                ← Back to Level Selection
+            <Link to={`/levels/${gridSize}`} className="back-link" id="back-to-levels">
+                ← Back to {gridSize}x{gridSize} Puzzles
             </Link>
 
             <HudBar
